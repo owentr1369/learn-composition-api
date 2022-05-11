@@ -1,26 +1,43 @@
 <template>
   <h1>OverView</h1>
-  <h2>{{ firstName }}</h2>
+  <h2>{{ secondName }}</h2>
+  <p>{{ carInfo }}</p>
   <button @click="onChangeSomething">Click Me</button>
 </template>
 
 <script>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 export default {
   name: "OverViewPage",
   setup() {
+    // ref nên dùng cho primitive type
+    // reactive nên dùng cho object, array k cần truy cập .value
     const firstName = ref("Tony Stark");
+    let carInfo = reactive({
+      price: 100000,
+      name: "Mec",
+    });
+    const secondName = ref({
+      name: "Hu",
+      something: "Ha",
+    });
 
     function onChangeSomething() {
-      console.log("Running...");
-      console.log(firstName);
-      firstName.value = "Tran Tam";
-      // firstName = "Tran Tam";
+      secondName.value = {
+        name: "Tran Tam",
+        something: "Sharing",
+      };
+      carInfo = {
+        price: 20,
+        name: "BMW",
+      };
     }
 
     return {
       firstName,
+      carInfo,
+      secondName,
       onChangeSomething,
     };
   },

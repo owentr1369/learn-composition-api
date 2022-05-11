@@ -1,5 +1,5 @@
 <template>
-  <h1>Hello DOM</h1>
+  <h1>Hello Vue</h1>
   <div>
     <img alt="Vue logo" src="./assets/logo.png" />
     <NavBar />
